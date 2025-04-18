@@ -1,0 +1,58 @@
+/* Animated toast notifications */
+@keyframes slide-in {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius);
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    z-index: 1000;
+    animation: slide-in 0.3s ease-out;
+}
+
+/* Receipt card hover effect */
+.receipt-card {
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.receipt-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+}
+
+.receipt-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 50%);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.receipt-card:hover::after {
+    opacity: 1;
+}
+
+/* Icon buttons */
+.icon-btn {
+    background: none;
+    border: none;
+    color: var(--dark);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.icon-btn:hover {
+    color: var(--primary);
+    transform: scale(1.1);
+}
